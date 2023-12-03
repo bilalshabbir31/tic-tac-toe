@@ -4,13 +4,14 @@ const Player = ({ name, symbol }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   function handleEditClick() {
-    setIsEditing(true);
+    // (editing) => !editing is best practice to change state if value is depend on previous state.
+    setIsEditing((editing) => !editing);
   }
 
   let playerName = <span className="player-name">{name}</span>
   // let btnCaption = 'Edit';
   if (isEditing) {
-    playerName = <input type="text" required/>
+    playerName = <input type="text" required value={name}/>
     // btnCaption="Save"
   }
 
