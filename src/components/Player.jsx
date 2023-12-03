@@ -8,16 +8,19 @@ const Player = ({ name, symbol }) => {
   }
 
   let playerName = <span className="player-name">{name}</span>
-  if (playerName) {
+  // let btnCaption = 'Edit';
+  if (isEditing) {
     playerName = <input type="text" required/>
+    // btnCaption="Save"
   }
+
   return (
     <li>
       <span className="player">
         {playerName}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={handleEditClick}>Edit</button>
+      <button onClick={handleEditClick}>{isEditing ? 'Save' : 'Edit'}</button>
     </li>
   )
 }
